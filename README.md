@@ -19,3 +19,4 @@ A responsive farmer-to-buyer marketplace demo built with plain HTML, CSS and Jav
 - Listings exist only in the current browser session and are not sent to a server.
 - Buyer profiles are fictional demo profiles; the prototype does not facilitate real transactions.
 - For a production app, add secure backend storage, verified market data, authentication, and consent-based contact features.
+- Website deployment update.
