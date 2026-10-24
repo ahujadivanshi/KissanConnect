@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KisanConnect — Farmer to Buyer</title>
+<style>
+:root{--green:#176b3a;--green2:#21864b;--light:#eef8f0;--mint:#d9f0df;--ink:#173126;--muted:#64756b;--line:#e1ebe3;--white:#fff;--gold:#f4b942;--shadow:0 12px 32px rgba(23,65,40,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#f7faf7}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.nav{max-width:1180px;margin:auto;padding:15px 22px;display:flex;align-items:center;gap:24px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.22rem;color:var(--green);white-space:nowrap}.brand-mark{width:38px;height:38px;border-radius:13px;background:var(--green);color:white;display:grid;place-items:center;font-size:21px}.navlinks{display:flex;gap:8px;margin-left:auto}.navlinks button{border:0;background:transparent;padding:10px 12px;border-radius:10px;color:#52685a;font-weight:650}.navlinks button.active,.navlinks button:hover{background:var(--light);color:var(--green)}.nav-cta,.primary{background:var(--green);color:white;border:0;border-radius:12px;padding:11px 16px;font-weight:750;box-shadow:0 5px 12px #176b3a20}.nav-cta:hover,.primary:hover{background:#10572e}.menu-btn{display:none;border:1px solid var(--line);background:white;border-radius:10px;padding:8px 10px}.container{max-width:1180px;margin:auto;padding:28px 22px 60px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:stretch}.hero-copy{background:linear-gradient(125deg,#e7f6eb,#f5fbf6);border:1px solid #d9eddf;border-radius:25px;padding:34px;position:relative;overflow:hidden}.eyebrow{display:inline-flex;align-items:center;gap:7px;background:white;border:1px solid #dceee0;color:var(--green);padding:7px 11px;border-radius:99px;font-size:.82rem;font-weight:800}.hero h1{font-size:clamp(2.1rem,4.3vw,3.55rem);line-height:1.06;letter-spacing:-.045em;margin:18px 0 14px;max-width:680px}.hero h1 span{color:var(--green2)}.hero p{color:#52695b;line-height:1.7;max-width:590px;margin:0 0 22px}.hero-actions{display:flex;gap:11px;flex-wrap:wrap}.secondary{background:white;border:1px solid #cfe2d4;color:var(--green);padding:11px 16px;border-radius:12px;font-weight:750}.hero-note{font-size:.78rem;color:#687a6d;margin-top:17px}.hero-art{background:var(--green);border-radius:25px;min-height:300px;color:white;padding:26px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.sun{position:absolute;right:35px;top:30px;width:78px;height:78px;background:#f7c95d;border-radius:50%}.hill{position:absolute;bottom:-65px;border-radius:50% 50% 0 0;width:125%;height:190px;left:-15%;background:#3b9b59;transform:rotate(-7deg)}.hill2{position:absolute;bottom:-105px;left:-8%;width:125%;height:210px;background:#8dcf83;border-radius:50% 50% 0 0;transform:rotate(8deg)}.field-lines{position:absolute;bottom:0;left:20%;width:85%;height:130px;opacity:.42;z-index:1;transform:rotate(-18deg)}.hero-art-content{position:relative;z-index:2}.hero-art h3{font-size:1.5rem;margin:0 0 7px}.hero-art p{color:#e1f4e6;margin:0;font-size:.9rem}.art-stat{background:#fff;color:var(--ink);border-radius:16px;padding:14px 16px;max-width:230px;box-shadow:var(--shadow)}.art-stat strong{font-size:1.6rem;display:block;color:var(--green)}.art-stat small{color:var(--muted)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:34px 0 16px}.section-head h2{font-size:1.55rem;margin:0;letter-spacing:-.025em}.section-head p{margin:5px 0 0;color:var(--muted);font-size:.92rem}.demo-pill{background:#fff6dc;color:#815a06;border:1px solid #f4e0a3;padding:7px 10px;border-radius:9px;font-size:.78rem;font-weight:800;white-space:nowrap}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat-card,.panel,.crop-card{background:white;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.stat-card{padding:18px}.stat-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:.85rem;font-weight:650}.stat-icon{width:38px;height:38px;border-radius:12px;background:var(--light);display:grid;place-items:center;font-size:19px}.stat-number{font-size:1.75rem;font-weight:850;margin:12px 0 4px;letter-spacing:-.03em}.stat-foot{color:#4b8a5d;font-size:.8rem}.dashboard-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:16px}.panel{padding:20px}.panel-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.panel-title h3{margin:0;font-size:1.05rem}.panel-title p{margin:4px 0 0;font-size:.82rem;color:var(--muted)}.select{border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff;color:var(--ink)}.chart-wrap{height:230px;position:relative}.chart-wrap canvas{width:100%;height:100%;display:block}.chart-legend{display:flex;gap:16px;color:var(--muted);font-size:.8rem;margin-top:10px}.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:.88rem}th{text-align:left;color:var(--muted);font-size:.76rem;font-weight:750;padding:12px 10px;border-bottom:1px solid var(--line)}td{padding:14px 10px;border-bottom:1px solid #edf2ee;white-space:nowrap}tbody tr:last-child td{border-bottom:0}.crop-name{display:flex;align-items:center;gap:9px;font-weight:750}.crop-emoji{width:34px;height:34px;background:#f1f8ed;border-radius:10px;display:grid;place-items:center;font-size:19px}.price{font-weight:850}.trend-up{color:#25844a;font-weight:750}.trend-down{color:#bb6a24;font-weight:750}.section{display:none}.section.active{display:block}.filters{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:10px;margin-bottom:16px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:.82rem;font-weight:750;color:#455d4b}.field input,.field select,.field textarea{width:100%;border:1px solid #dce7de;background:white;border-radius:11px;padding:11px 12px;outline:none;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{border-color:#65a978;box-shadow:0 0 0 3px #dff2e4}.crop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.crop-card{padding:17px}.crop-card-top{display:flex;align-items:center;gap:12px}.crop-large{font-size:27px;width:52px;height:52px;display:grid;place-items:center;background:var(--light);border-radius:15px}.crop-card h3{margin:0 0 4px;font-size:1.05rem}.crop-card small{color:var(--muted)}.crop-price{font-size:1.45rem;font-weight:850;margin:18px 0 4px}.crop-meta{color:var(--muted);font-size:.82rem}.tag{display:inline-block;padding:5px 8px;border-radius:8px;background:#e9f6ec;color:#277544;font-size:.75rem;font-weight:800;margin-top:12px}.form-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:17px}.info-panel{background:linear-gradient(145deg,#176b3a,#24864a);color:white;border-radius:20px;padding:24px;align-self:start}.info-panel h3{font-size:1.35rem;margin:0 0 10px}.info-panel p{color:#e1f2e5;line-height:1.6;font-size:.9rem}.tip{display:flex;gap:10px;margin-top:18px;font-size:.86rem;color:#f0fff3}.form-panel{background:white;border:1px solid var(--line);border-radius:20px;padding:23px;box-shadow:var(--shadow)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field.full{grid-column:1/-1}.notice{display:none;margin-top:14px;padding:12px 14px;border-radius:11px;background:#e8f7eb;color:#176b3a;font-weight:700;font-size:.9rem}.notice.show{display:block}.match-list{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.match-card{background:white;border:1px solid var(--line);border-radius:16px;padding:17px}.match-card h3{margin:0 0 5px}.match-card p{margin:0;color:var(--muted);font-size:.86rem;line-height:1.55}.match-badges{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.match-badges span{font-size:.74rem;font-weight:750;padding:5px 8px;border-radius:8px;background:#edf7ef;color:#2a7442}.match-card button{background:white;border:1px solid #bddac5;color:var(--green);padding:9px 11px;border-radius:10px;font-weight:750;margin-top:5px}.empty{padding:30px;text-align:center;color:var(--muted);background:white;border:1px dashed #c9d9cd;border-radius:15px;grid-column:1/-1}.footer{margin-top:42px;border-top:1px solid var(--line);padding:22px 0 0;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:var(--muted);font-size:.82rem}.toast{position:fixed;right:20px;bottom:20px;background:#153f28;color:white;padding:13px 17px;border-radius:12px;box-shadow:var(--shadow);z-index:10;display:none}.toast.show{display:block}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-art{min-height:240px}.stats{grid-template-columns:repeat(2,1fr)}.dashboard-grid,.form-layout{grid-template-columns:1fr}.crop-grid{grid-template-columns:repeat(2,1fr)}.filters{grid-template-columns:1fr 1fr}.navlinks{display:none;position:absolute;top:68px;left:12px;right:12px;background:white;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:var(--shadow);flex-direction:column}.navlinks.open{display:flex}.navlinks button{text-align:left}.menu-btn{display:block;margin-left:auto}.nav-cta{display:none}}
+@media(max-width:560px){.container{padding:18px 14px 40px}.nav{padding:12px 14px}.hero-copy{padding:23px}.hero h1{font-size:2.25rem}.stats{gap:9px}.stat-card{padding:13px}.stat-number{font-size:1.45rem}.section-head{align-items:start;flex-direction:column}.crop-grid,.match-list,.form-grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.panel,.form-panel{padding:16px}.hero-art{min-height:250px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav">
+    <div class="brand"><div class="brand-mark">🌱</div>KisanConnect</div>
+    <div class="navlinks" id="navlinks">
+      <button class="active" data-section="dashboard">Dashboard</button>
+      <button data-section="prices">Crop prices</button>
+      <button data-section="list">List a crop</button>
+      <button data-section="buyers">Find buyers</button>
+    </div>
+    <button class="nav-cta" onclick="showSection('list')">+ List your crop</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+  </nav>
+</header>
+<main class="container">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">🌾 FARMER-FIRST MARKETPLACE</div>
+      <h1>Better prices.<br><span>Stronger harvests.</span></h1>
+      <p>KisanConnect helps farmers discover market prices, list their produce, and connect directly with buyers — with fewer middlemen and more informed decisions.</p>
+      <div class="hero-actions"><button class="primary" onclick="showSection('prices')">Explore crop prices →</button><button class="secondary" onclick="showSection('list')">List your harvest</button></div>
+      <div class="hero-note">Demo prototype · Uses illustrative sample data · No paid APIs required</div>
+    </div>
+    <div class="hero-art">
+      <div class="sun"></div><div class="hill"></div><div class="hill2"></div>
+      <div class="hero-art-content"><h3>From farm to fair price.</h3><p>One simple place to explore the market.</p></div>
+      <div class="art-stat hero-art-content"><strong>Direct connection</strong><small>Farmers ↔ Buyers</small></div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="section active">
+    <div class="section-head"><div><h2>Your market at a glance</h2><p>Explore a sample snapshot of crop prices and marketplace activity.</p></div><span class="demo-pill">⚠ DEMO DATA — NOT LIVE</span></div>
+    <div class="stats">
+      <div class="stat-card"><div class="stat-top">Crops tracked <span class="stat-icon">🌿</span></div><div class="stat-number" id="cropCount">6</div><div class="stat-foot">Sample crops in dashboard</div></div>
+      <div class="stat-card"><div class="stat-top">Buyer listings <span class="stat-icon">🧺</span></div><div class="stat-number" id="buyerCount">4</div><div class="stat-foot">Illustrative buyer profiles</div></div>
+      <div class="stat-card"><div class="stat-top">Farmer listings <span class="stat-icon">🚜</span></div><div class="stat-number" id="listingCount">0</div><div class="stat-foot">Added in this session</div></div>
+      <div class="stat-card"><div class="stat-top">Markets compared <span class="stat-icon">📍</span></div><div class="stat-number">3</div><div class="stat-foot">Example locations</div></div>
+    </div>
+    <div class="dashboard-grid">
+      <div class="panel"><div class="panel-title"><div><h3>Price trend overview</h3><p>Illustrative prices in ₹ per quintal</p></div><select class="select" id="trendCrop" aria-label="Select crop for price trend"><option value="Wheat">Wheat</option><option value="Tomato">Tomato</option><option value="Rice">Rice</option><option value="Potato">Potato</option><option value="Onion">Onion</option><option value="Maize">Maize</option></select></div><div class="chart-wrap"><canvas id="trendChart" aria-label="Sample crop price trend chart"></canvas></div><div class="chart-legend"><span><i class="dot" style="background:#23844a"></i>Sample price</span><span>Last 6 sample periods</span></div></div>
+      <div class="panel"><div class="panel-title"><div><h3>Market price snapshot</h3><p>Compare example market rates</p></div><button class="secondary" style="padding:8px 10px;font-size:.8rem" onclick="showSection('prices')">View all</button></div><div class="table-wrap"><table><thead><tr><th>Crop</th><th>Market</th><th>₹/quintal</th></tr></thead><tbody id="snapshotBody"></tbody></table></div></div>
+    </div>
+    <div class="section-head"><div><h2>How KisanConnect works</h2><p>Three simple steps for a more connected market.</p></div></div>
+    <div class="stats">
+      <div class="stat-card"><div class="stat-icon">🔎</div><div class="stat-number" style="font-size:1.1rem">Discover</div><div class="stat-foot" style="color:var(--muted)">Compare sample prices across markets.</div></div>
+      <div class="stat-card"><div class="stat-icon">📝</div><div class="stat-number" style="font-size:1.1rem">List</div><div class="stat-foot" style="color:var(--muted)">Share your crop, quantity and location.</div></div>
+      <div class="stat-card"><div class="stat-icon">🤝</div><div class="stat-number" style="font-size:1.1rem">Connect</div><div class="stat-foot" style="color:var(--muted)">Find buyers whose needs match your crop.</div></div>
+      <div class="stat-card"><div class="stat-icon">📈</div><div class="stat-number" style="font-size:1.1rem">Decide</div><div class="stat-foot" style="color:var(--muted)">Use trends as a demo decision aid.</div></div>
+    </div>
+  </section>
+
+  <section id="prices" class="section">
+    <div class="section-head"><div><h2>Crop price explorer</h2><p>Filter the sample data by crop and market to compare example rates.</p></div><span class="demo-pill">⚠ ILLUSTRATIVE DATA</span></div>
+    <div class="panel">
+      <div class="filters">
+        <div class="field"><label for="priceSearch">Search crop</label><input id="priceSearch" placeholder="e.g. wheat, tomato" /></div>
+        <div class="field"><label for="marketFilter">Market</label><select id="marketFilter"><option value="All">All markets</option><option>Solan</option><option>Shimla</option><option>Kangra</option></select></div>
+        <div class="field"><label for="sortPrices">Sort by price</label><select id="sortPrices"><option value="high">Highest first</option><option value="low">Lowest first</option><option value="crop">Crop name</option></select></div>
+        <button class="secondary" style="align-self:end" id="resetFilters">Reset filters</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>Crop</th><th>Market</th><th>Sample price / quintal</th><th>Sample trend</th></tr></thead><tbody id="pricesBody"></tbody></table></div>
+      <p style="font-size:.8rem;color:var(--muted);margin:15px 0 0">Important: Prices are invented for this prototype and are not current mandi prices. Verify rates from official market sources before making real decisions.</p>
+    </div>
+  </section>
+
+  <section id="list" class="section">
+    <div class="section-head"><div><h2>List your harvest</h2><p>Add a sample farmer listing to the demo marketplace.</p></div><span class="demo-pill">SESSION-ONLY DEMO</span></div>
+    <div class="form-layout">
+      <aside class="info-panel"><h3>Your crop deserves a fair market.</h3><p>Share the details buyers need to understand your produce. Your submission will appear in this demo session and can be used to test buyer matching.</p><div class="tip"><span>✓</span><span>Include crop and available quantity.</span></div><div class="tip"><span>✓</span><span>Add your location for better matching.</span></div><div class="tip"><span>✓</span><span>Use a fair asking price per quintal.</span></div><p style="font-size:.78rem;margin-top:24px">Prototype note: this form does not send data to a server or publish a real listing.</p></aside>
+      <form class="form-panel" id="listingForm">
+        <div class="form-grid">
+          <div class="field"><label for="farmerName">Farmer name</label><input id="farmerName" required placeholder="e.g. Ramesh Kumar" /></div>
+          <div class="field"><label for="cropSelect">Crop</label><select id="cropSelect" required><option value="">Select crop</option><option>Wheat</option><option>Rice</option><option>Tomato</option><option>Potato</option><option>Onion</option><option>Maize</option><option>Apple</option></select></div>
+          <div class="field"><label for="quantity">Available quantity (quintals)</label><input id="quantity" type="number" min="1" required placeholder="e.g. 20" /></div>
+          <div class="field"><label for="askPrice">Expected price (₹/quintal)</label><input id="askPrice" type="number" min="1" required placeholder="e.g. 2400" /></div>
+          <div class="field"><label for="farmerLocation">Location</label><select id="farmerLocation" required><option value="">Select location</option><option>Solan</option><option>Shimla</option><option>Kangra</option><option>Dharamshala</option><option>Other Himachal Pradesh</option></select></div>
+          <div class="field"><label for="quality">Produce quality</label><select id="quality"><option>Standard</option><option>Good</option><option>Premium</option><option>Organic (self-reported)</option></select></div>
+          <div class="field full"><label for="notes">Additional details (optional)</label><textarea id="notes" rows="3" placeholder="Harvest date, packaging, or other details"></textarea></div>
+          <div class="field full"><button class="primary" type="submit">Add demo listing →</button></div>
+        </div>
+        <div class="notice" id="listingNotice" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="buyers" class="section">
+    <div class="section-head"><div><h2>Find a buyer</h2><p>Search illustrative buyer profiles and see which farmer listings match their needs.</p></div><span class="demo-pill">DEMO PROFILES</span></div>
+    <div class="panel" style="margin-bottom:16px"><div class="filters" style="margin:0">
+      <div class="field"><label for="buyerCrop">Crop wanted</label><select id="buyerCrop"><option value="All">Any crop</option><option>Wheat</option><option>Rice</option><option>Tomato</option><option>Potato</option><option>Onion</option><option>Maize</option><option>Apple</option></select></div>
+      <div class="field"><label for="buyerLocation">Preferred location</label><select id="buyerLocation"><option value="All">Any location</option><option>Solan</option><option>Shimla</option><option>Kangra</option><option>Dharamshala</option><option>Other Himachal Pradesh</option></select></div>
+      <div class="field"><label for="minQty">Minimum quantity (quintals)</label><input type="number" id="minQty" min="0" placeholder="Any quantity" /></div>
+      <button class="primary" style="align-self:end" id="searchBuyers">Find matches</button>
+    </div></div>
+    <div class="match-list" id="buyerResults"></div>
+    <div class="section-head"><div><h2>Your farmer listings</h2><p>Listings added in this browser session.</p></div></div>
+    <div id="myListings" class="match-list"></div>
+  </section>
+
+  <footer class="footer"><div><strong style="color:var(--green)">KisanConnect</strong> · A student hackathon prototype</div><div>Demo data only · No paid API · Built for demonstration</div></footer>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const priceData = [
+ {crop:"Wheat",emoji:"🌾",market:"Solan",price:2450,trend:3.2},
+ {crop:"Wheat",emoji:"🌾",market:"Shimla",price:2380,trend:1.4},
+ {crop:"Wheat",emoji:"🌾",market:"Kangra",price:2510,trend:4.1},
+ {crop:"Rice",emoji:"🍚",market:"Solan",price:3100,trend:2.2},
+ {crop:"Rice",emoji:"🍚",market:"Shimla",price:3050,trend:-0.8},
+ {crop:"Rice",emoji:"🍚",market:"Kangra",price:3180,trend:1.8},
+ {crop:"Tomato",emoji:"🍅",market:"Solan",price:1800,trend:-3.1},
+ {crop:"Tomato",emoji:"🍅",market:"Shimla",price:2100,trend:5.4},
+ {crop:"Tomato",emoji:"🍅",market:"Kangra",price:1950,trend:2.7},
+ {crop:"Potato",emoji:"🥔",market:"Solan",price:1450,trend:1.2},
+ {crop:"Potato",emoji:"🥔",market:"Shimla",price:1520,trend:2.1},
+ {crop:"Potato",emoji:"🥔",market:"Kangra",price:1380,trend:-1.2},
+ {crop:"Onion",emoji:"🧅",market:"Solan",price:2200,trend:4.5},
+ {crop:"Onion",emoji:"🧅",market:"Shimla",price:2300,trend:3.1},
+ {crop:"Onion",emoji:"🧅",market:"Kangra",price:2150,trend:-0.5},
+ {crop:"Maize",emoji:"🌽",market:"Solan",price:2050,trend:1.8},
+ {crop:"Maize",emoji:"🌽",market:"Shimla",price:1980,trend:-1.4},
+ {crop:"Maize",emoji:"🌽",market:"Kangra",price:2120,trend:2.6}
+];
+const buyers = [
+ {name:"Himalayan Fresh Store",type:"Local produce retailer",crop:"Tomato",location:"Solan",qty:10,max:2200,emoji:"🥬"},
+ {name:"Green Basket Co-op",type:"Farmers' market cooperative",crop:"Potato",location:"Shimla",qty:15,max:1750,emoji:"🧺"},
+ {name:"Mountain Grain Traders",type:"Grain wholesaler",crop:"Wheat",location:"Kangra",qty:30,max:2600,emoji:"🌾"},
+ {name:"Fresh Valley Foods",type:"Food distributor",crop:"Rice",location:"Solan",qty:20,max:3300,emoji:"🚚"},
+ {name:"Hillside Kitchen Supply",type:"Restaurant supplier",crop:"Onion",location:"Dharamshala",qty:8,max:2450,emoji:"🍲"},
+ {name:"Himachal Harvest Hub",type:"Regional produce buyer",crop:"Maize",location:"Kangra",qty:12,max:2250,emoji:"🌽"}
+];
+let listings = [];
+const fmt = n => "₹" + Number(n).toLocaleString("en-IN");
+function showSection(id){
+ document.querySelectorAll(".section").forEach(s=>s.classList.toggle("active",s.id===id));
+ document.querySelectorAll(".navlinks button").forEach(b=>b.classList.toggle("active",b.dataset.section===id));
+ document.getElementById("navlinks").classList.remove("open");
+ if(id==="buyers") renderBuyers();
+ if(id==="prices") renderPrices();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("[data-section]").forEach(b=>b.addEventListener("click",()=>showSection(b.dataset.section)));
+document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("navlinks").classList.toggle("open"));
+function renderSnapshot(){
+ const chosen=[priceData[0],priceData[5],priceData[7],priceData[10]];
+ document.getElementById("snapshotBody").innerHTML=chosen.map(x=>`<tr><td><span class="crop-name"><span class="crop-emoji">${x.emoji}</span>${x.crop}</span></td><td>${x.market}</td><td class="price">${fmt(x.price)}</td></tr>`).join("");
+}
+function renderPrices(){
+ let rows=priceData.filter(x=>x.crop.toLowerCase().includes(document.getElementById("priceSearch").value.toLowerCase())&&(document.getElementById("marketFilter").value==="All"||x.market===document.getElementById("marketFilter").value));
+ const sort=document.getElementById("sortPrices").value;
+ rows.sort((a,b)=>sort==="low"?a.price-b.price:sort==="crop"?a.crop.localeCompare(b.crop):b.price-a.price);
+ document.getElementById("pricesBody").innerHTML=rows.length?rows.map(x=>`<tr><td><span class="crop-name"><span class="crop-emoji">${x.emoji}</span>${x.crop}</span></td><td>${x.market}</td><td class="price">${fmt(x.price)}</td><td class="${x.trend>=0?'trend-up':'trend-down'}">${x.trend>=0?'↗ +':'↘ '}${Math.abs(x.trend).toFixed(1)}%</td></tr>`).join(""):`<tr><td colspan="4" style="text-align:center;padding:28px;color:var(--muted)">No sample prices match those filters.</td></tr>`;
+}
+["priceSearch","marketFilter","sortPrices"].forEach(id=>document.getElementById(id).addEventListener(id==="priceSearch"?"input":"change",renderPrices));
+document.getElementById("resetFilters").addEventListener("click",()=>{document.getElementById("priceSearch").value="";document.getElementById("marketFilter").value="All";document.getElementById("sortPrices").value="high";renderPrices()});
+function drawChart(){
+ const canvas=document.getElementById("trendChart");if(!canvas||!canvas.offsetParent)return;
+ const rect=canvas.getBoundingClientRect(),dpr=window.devicePixelRatio||1;canvas.width=Math.max(300,rect.width*dpr);canvas.height=Math.max(180,rect.height*dpr);
+ const ctx=canvas.getContext("2d");ctx.scale(dpr,dpr);const w=canvas.width/dpr,h=canvas.height/dpr;
+ ctx.clearRect(0,0,w,h);const crop=document.getElementById("trendCrop").value;
+ const base=priceData.filter(x=>x.crop===crop).reduce((s,x)=>s+x.price,0)/3;
+ const values=[.91,.95,.93,.99,1.02,1.0].map((v,i)=>Math.round(base*v+Math.sin(i*1.4)*base*.012));
+ const left=39,right=10,top=12,bottom=28,cw=w-left-right,ch=h-top-bottom;
+ const min=Math.min(...values)*.94,max=Math.max(...values)*1.05;
+ ctx.font="11px system-ui";ctx.fillStyle="#7b8b7e";ctx.strokeStyle="#e7eee8";ctx.lineWidth=1;
+ for(let i=0;i<4;i++){let y=top+ch*i/3;ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(w-right,y);ctx.stroke();ctx.fillText(Math.round(max-(max-min)*i/3).toLocaleString("en-IN"),2,y+4)}
+ const pts=values.map((v,i)=>({x:left+cw*i/(values.length-1),y:top+ch-(v-min)/(max-min)*ch}));
+ const grad=ctx.createLinearGradient(0,top,0,h);grad.addColorStop(0,"rgba(35,132,74,.2)");grad.addColorStop(1,"rgba(35,132,74,0)");
+ ctx.beginPath();ctx.moveTo(pts[0].x,h-bottom);pts.forEach(p=>ctx.lineTo(p.x,p.y));ctx.lineTo(pts[pts.length-1].x,h-bottom);ctx.closePath();ctx.fillStyle=grad;ctx.fill();
+ ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.strokeStyle="#23844a";ctx.lineWidth=2.8;ctx.lineJoin="round";ctx.stroke();
+ pts.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,3.5,0,Math.PI*2);ctx.fillStyle="#fff";ctx.fill();ctx.strokeStyle="#23844a";ctx.lineWidth=2;ctx.stroke()});
+ ["P1","P2","P3","P4","P5","P6"].forEach((lab,i)=>{ctx.fillStyle="#7b8b7e";ctx.fillText(lab,pts[i].x-7,h-7)});
+}
+document.getElementById("trendCrop").addEventListener("change",drawChart);
+document.getElementById("listingForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const item={id:Date.now(),name:document.getElementById("farmerName").value.trim(),crop:document.getElementById("cropSelect").value,qty:Number(document.getElementById("quantity").value),price:Number(document.getElementById("askPrice").value),location:document.getElementById("farmerLocation").value,quality:document.getElementById("quality").value,notes:document.getElementById("notes").value.trim()};
+ listings.unshift(item);document.getElementById("listingCount").textContent=listings.length;
+ const note=document.getElementById("listingNotice");note.textContent=`✓ Demo listing added for ${item.crop}. Open “Find buyers” to explore possible matches.`;note.classList.add("show");
+ e.target.reset();renderBuyers();showToast("Demo crop listing added successfully!");
+});
+function renderBuyers(){
+ const crop=document.getElementById("buyerCrop").value,loc=document.getElementById("buyerLocation").value,minQty=Number(document.getElementById("minQty").value||0);
+ let matches=buyers.filter(b=>(crop==="All"||b.crop===crop)&&(loc==="All"||b.location===loc)&&b.qty>=minQty);
+ const results=document.getElementById("buyerResults");
+ results.innerHTML=matches.length?matches.map(b=>`<article class="match-card"><div style="display:flex;gap:11px;align-items:center"><span class="crop-large">${b.emoji}</span><div><h3>${b.name}</h3><p>${b.type}</p></div></div><div class="match-badges"><span>Wants ${b.crop}</span><span>${b.location}</span><span>${b.qty}+ quintals</span></div><p>Illustrative maximum budget: <strong>${fmt(b.max)}/quintal</strong></p><button onclick="showToast('Demo only: no real contact details are available.')">View buyer details</button></article>`).join(""):`<div class="empty">No buyer profiles match these filters. Try a different crop or location.</div>`;
+ const mine=document.getElementById("myListings");
+ mine.innerHTML=listings.length?listings.map(l=>{
+  const found=buyers.filter(b=>b.crop===l.crop&&b.qty<=l.qty&&(b.location===l.location||l.location==="Other Himachal Pradesh"||l.location==="Dharamshala"));
+  return `<article class="match-card"><div style="display:flex;justify-content:space-between;gap:10px"><h3>${l.crop} · ${l.qty} quintals</h3><span class="tag">${l.quality}</span></div><p>Listed by ${escapeHtml(l.name)} · ${l.location}</p><div class="crop-price">${fmt(l.price)} <span style="font-size:.78rem;font-weight:500;color:var(--muted)">/ quintal</span></div><div class="match-badges"><span>${found.length} possible buyer match${found.length===1?"":"es"}</span></div><button onclick="showToast('${found.length?found.length+' possible buyer match(es) found.':'No close buyer match yet; try broadening location.'}')">Check matches</button></article>`
+ }).join(""):`<div class="empty">You haven't added a crop listing yet. Use “List a crop” to create one.</div>`;
+}
+document.getElementById("searchBuyers").addEventListener("click",renderBuyers);
+["buyerCrop","buyerLocation","minQty"].forEach(id=>document.getElementById(id).addEventListener("change",renderBuyers));
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+let toastTimer;function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2800)}
+renderSnapshot();renderPrices();renderBuyers();setTimeout(drawChart,60);window.addEventListener("resize",drawChart);
+const observer=new MutationObserver(()=>{if(document.getElementById("dashboard").classList.contains("active"))drawChart()});observer.observe(document.getElementById("dashboard"),{attributes:true,attributeFilter:["class"]});
+</script>
+</body>
+</html>
